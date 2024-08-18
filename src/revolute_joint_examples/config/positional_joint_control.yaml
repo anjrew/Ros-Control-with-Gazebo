@@ -8,12 +8,12 @@ positional_jointed_robot:
   base_to_arm_position_controller:
     type: position_controllers/JointPositionController
     joint: base_to_arm
-    pid: { p: 100.0, i: 0.01, d: 10.0 }
+    pid: { p: 10.0, i: 0.0, d: 0.0 }
 
   # PID gains
   gazebo_ros_control:
     pid_gains:
       base_to_arm:
-        p: 100.0
-        i: 0.01
-        d: 10.0
+        p: 10.0
+        i: 0.0
+        d: 0.0
