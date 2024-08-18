@@ -5,4 +5,7 @@
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen" args="-urdf -model simple_robot -param robot_description"/>
+
+    <!-- Foxglove Bridge -->
+    <include file="$(find foxglove_bridge)/launch/foxglove_bridge.launch" />
 </launch>
