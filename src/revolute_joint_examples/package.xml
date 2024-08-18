@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>joint_examples</name>
+  <name>revolute_joint_examples</name>
   <version>0.0.0</version>
-  <description>The joint_examples package</description>
+  <description>The revolute_joint_examples package</description>
 
   <maintainer email="aj@todo.todo">aj</maintainer>
 
