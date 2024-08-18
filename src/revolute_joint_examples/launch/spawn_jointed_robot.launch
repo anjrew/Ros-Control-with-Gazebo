@@ -3,29 +3,37 @@
 
     <arg name="control_type" default="positional"/>
 
-
-    <!-- Launch Gazebo with an empty world -->
+    <!-- Load the Gazebo world file -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="paused" value="true"/>
+        <arg name="use_sim_time" value="true"/>
+        <arg name="debug" value="false"/>
+        <arg name="gui" value="true" />
+        <arg name="verbose" value="true" />
     </include>
 
     <!-- Load the URDF into the ROS Parameter Server -->
-    <param name="robot_description" command="$(find xacro)/xacro '$(find revolute_joint_examples)/urdf/jointed_robot.urdf'" />
+    <param name="robot_description" command="$(find xacro)/xacro '$(find revolute_joint_examples)/urdf/$(arg control_type)_jointed_robot.urdf'" />
 
     <!-- Spawn the robot -->
-    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model jointed_robot" />
+    <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model $(arg control_type)_jointed_robot" />
 
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(find revolute_joint_examples)/config/$(arg control_type)_joint_control.yaml" command="load"/>
 
     <!-- Load the controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/jointed_robot" args="joint_state_controller base_to_arm_position_controller"/>
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/$(arg control_type)_jointed_robot" args="joint_state_controller base_to_arm_position_controller"/>
+    <!-- <node name="controller_manager" pkg="controller_manager" type="spawner" ns="jointed_robot" args="joint_state_controller base_to_arm_position_controller" output="screen"/> -->
+
 
     <!-- Convert joint states to TF transforms for rviz, etc -->
     <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
-        <remap from="/joint_states" to="/jointed_robot/joint_states" />
+        <remap from="/joint_states" to="/$(arg control_type)_jointed_robot/joint_states" />
     </node>
 
     <!-- Foxglove Bridge -->
     <include file="$(find foxglove_bridge)/launch/foxglove_bridge.launch" />
+
+    <!-- Unpause the simulation -->
+    <node name="unpause_gazebo" pkg="rosservice" type="rosservice" args="call --wait /gazebo/unpause_physics" />
 </launch>

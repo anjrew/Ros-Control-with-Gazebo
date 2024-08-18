@@ -1,5 +1,7 @@
 #!/usr/bin/bash
 
+ROS_DISTRO=noetic
+
 # Install ROS dependencies
 DEBIAN_FRONTEND=noninteractive \
     apt-get update &&
@@ -26,4 +28,8 @@ DEBIAN_FRONTEND=noninteractive \
         ros-${ROS_DISTRO}-gazebo-ros-control \
         ros-${ROS_DISTRO}-ros-controllers \
         ros-${ROS_DISTRO}-costmap-2d \
-        ros-${ROS_DISTRO}-navigation
+        ros-${ROS_DISTRO}-navigation \
+        ros-${ROS_DISTRO}-ros-control \
+        ros-${ROS_DISTRO}-joint-state-controller \
+        ros-${ROS_DISTRO}-effort-controllers \
+        ros-${ROS_DISTRO}-position-controllers
