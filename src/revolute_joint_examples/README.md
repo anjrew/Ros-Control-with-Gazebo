@@ -1,6 +1,6 @@
 # Revolute Joint Examples
 
-## Positional Joint
+## Positional Joint Control
 
 To send a message to the revolute joint, by position. For revolute joints: Radians (rad)
 
@@ -16,7 +16,7 @@ Send a message to the joint (Must be between the min and max values defined in t
 rostopic pub /positional_jointed_robot/base_to_arm_position_controller/command std_msgs/Float64 "data: 1.0"
 ```
 
-## Effort Joint
+## Effort Joint Control
 
 To send a message to the revolute joint, by effort. For revolute joints (rotational): Newton-meters (N⋅m) around the axis of rotation
 
@@ -32,7 +32,7 @@ Send a message to the joint (Must be between the min and max values defined in t
 rostopic pub /effort_jointed_robot/base_to_arm_effort_controller/command std_msgs/Float64 "data: 1.0"
 ```
 
-## Velocity Joint
+## Velocity Joint Control
 
 To send a message to the revolute joint, by effort. For revolute joints: Radians per second (rad/s)
 
