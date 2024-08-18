@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <arg name="control_type" default="effort"/>
+
+    <include file="$(find revolute_joint_examples)/launch/spawn_jointed_robot.launch">
+        <arg name="control_type" value="$(arg control_type)" />
+    </include>
+
+</launch>

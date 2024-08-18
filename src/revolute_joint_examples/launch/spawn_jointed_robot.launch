@@ -22,8 +22,7 @@
     <rosparam file="$(find revolute_joint_examples)/config/$(arg control_type)_joint_control.yaml" command="load"/>
 
     <!-- Load the controllers -->
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/$(arg control_type)_jointed_robot" args="joint_state_controller base_to_arm_position_controller"/>
-    <!-- <node name="controller_manager" pkg="controller_manager" type="spawner" ns="jointed_robot" args="joint_state_controller base_to_arm_position_controller" output="screen"/> -->
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/$(arg control_type)_jointed_robot" args="joint_state_controller base_to_arm_$(arg control_type)_controller" />
 
 
     <!-- Convert joint states to TF transforms for rviz, etc -->
