@@ -1,0 +1,18 @@
+velocity_controlled_robot:
+  # Publish all joint states
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  body_to_wheel_controller:
+    type: velocity_controllers/JointVelocityController
+    joint: body_to_wheel
+    pid: { p: 1.0, i: 0.0, d: 0.0 }
+
+  # PID gains
+  gazebo_ros_control:
+    pid_gains:
+      body_to_wheel:
+        p: 1.0
+        i: 0.0
+        d: 0.0

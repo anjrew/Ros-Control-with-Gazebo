@@ -1,4 +1,4 @@
-## Velocity Joint
+# Velocity Joint
 
 To send a message to the revolute joint, by effort. For revolute joints: Radians per second (rad/s)
 
