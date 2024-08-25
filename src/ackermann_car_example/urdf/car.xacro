@@ -2,62 +2,46 @@
 <robot name="car"
     xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <!-- Import the wheel macro -->
+    <!-- Import parameters from the config files -->
+    <xacro:property name="yaml_file" value="$(find ackermann_car_example)/config/car.yml" />
+    <xacro:property name="props" value="${xacro.load_yaml(yaml_file)}" />
+    <xacro:property name="car" value="${props['car']}" />
+    <xacro:property name="chassis" value="${car['chassis']}" />
+    <xacro:property name="wheel" value="${car['wheel']}" />
+    <xacro:property name="tire" value="${car['tire']}" />
+    <xacro:property name="axle" value="${car['axle']}" />
+    <xacro:property name="steering_column" value="${car['steering_column']}" />
+    <xacro:property name="lidar" value="${car['lidar']}" />
+    <xacro:property name="mounts" value="${car['mounts']}" />
+
+    <!-- Import the other macros -->
     <xacro:include filename="wheel.xacro" />
 
-    <!-- Define robot parameters -->
-    <xacro:property name="body_length" value="0.5" />
-    <xacro:property name="body_width" value="0.3" />
-    <xacro:property name="body_height" value="0.1" />
-    <xacro:property name="body_mass" value="5.0" />
-
-    <xacro:property name="wheel_radius" value="0.1" />
-    <xacro:property name="wheel_width" value="0.05" />
-    <xacro:property name="wheel_mass" value="1.0" />
+    <!-- Define IDS -->
+    <xacro:property name="robot_id" value="car" />
+    <xacro:property name="right_rear_id" value="right_rear" />
+    <xacro:property name="left_rear_id" value="left_rear" />
+    <xacro:property name="right_front_id" value="right_front" />
+    <xacro:property name="left_front_id" value="right_front" />
 
     <!-- Robot body -->
     <link name="base_link">
-        <visual>
-            <geometry>
-                <box size="${body_length} ${body_width} ${body_height}"/>
-            </geometry>
-            <material name="blue">
-                <color rgba="0 0 0.8 1"/>
-            </material>
-        </visual>
-        <collision>
-            <geometry>
-                <box size="${body_length} ${body_width} ${body_height}"/>
-            </geometry>
-        </collision>
         <inertial>
-            <mass value="${body_mass}"/>
-            <inertia ixx="${(1/12) * body_mass * (body_width*body_width + body_height*body_height)}" ixy="0" ixz="0" iyy="${(1/12) * body_mass * (body_length*body_length + body_height*body_height)}" iyz="0" izz="${(1/12) * body_mass * (body_length*body_length + body_width*body_width)}" />
+            <mass value="0.001"/>
+            <inertia ixx="0.0001" ixy="0" ixz="0" iyy="0.0001" iyz="0" izz="0.0001"/>
         </inertial>
     </link>
 
-    <!-- Use the wheel macro to create a wheel -->
-    <xacro:wheel id="wheel" radius="${wheel_radius}" width="${wheel_width}" mass_kg="${wheel_mass}" />
 
-    <!-- Joint connecting the body to the wheel -->
-    <joint name="right_rear_to_right_rear_axle_joint" type="continuous">
-        <parent link="base_link"/>
-        <child link="wheel"/>
-        <origin xyz="${body_length/2} 0 ${-body_height/2}" rpy="${pi/2} 0 0"/>
+    <joint name="base_to_wheel" type="fixed">
+        <parent link="base_link" />
+        <child link="${right_rear_id}" />
+        <origin xyz="${chassis.length_m/2 - chassis.wheel_x_offset_from_edge_m} 0 ${chassis.height_m/2}" />
         <axis xyz="0 0 1"/>
     </joint>
 
-    <!-- Transmission for the wheel joint -->
-    <transmission name="wheel_trans">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="right_rear_to_right_rear_axle_joint">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="wheel_motor">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
-    </transmission>
+    <!-- Use the wheel macro to create a wheel -->
+    <xacro:wheel id="${right_rear_id}" props="${wheel}" />
 
     <!-- Gazebo plugin for ROS Control -->
     <gazebo>

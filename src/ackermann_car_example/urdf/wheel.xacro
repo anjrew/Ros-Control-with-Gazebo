@@ -2,7 +2,10 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:macro name="wheel" params="id radius width mass_kg">
+    <xacro:macro name="wheel" params="id props">
+        <xacro:property name="width" value="${props['width_m']}" />
+        <xacro:property name="mass_kg" value="${props['mass_kg']}" />
+        <xacro:property name="radius" value="${props['diameter_m'] / 2}" />
         <link name="${id}">
             <visual>
                 <geometry>
