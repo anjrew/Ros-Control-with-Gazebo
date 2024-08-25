@@ -20,7 +20,7 @@
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </collision>
     </link>
-    <link name="right_front_shock_mount__column">
+    <link name="right_front_shock_mount_column">
         <inertial>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
             <mass value="0.0001"/>
@@ -33,7 +33,7 @@
             <material name="shock_mount_column_color"/>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </visual>
-        <collision name="right_front_shock_mount__column_collision">
+        <collision name="right_front_shock_mount_column_collision">
             <geometry>
                 <cylinder radius="0.002" length="0.0483"/>
             </geometry>
@@ -46,7 +46,7 @@
             <mass value="0.0282"/>
             <inertia ixx="6.3044624999999994e-06" ixy="0.0" ixz="0.0" iyy="6.3044624999999994e-06" iyz="0.0" izz="9.901724999999999e-06"/>
         </inertial>
-        <visual name="&lt;urdfpy.urdf.Material object at 0x7f30d12c36d0&gt;">
+        <visual name="&lt;urdfpy.urdf.Material object at 0x7f70a765b6d0&gt;">
             <geometry>
                 <cylinder radius="0.0265" length="0.024"/>
             </geometry>
@@ -79,7 +79,7 @@
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </collision>
     </link>
-    <link name="left_front_shock_mount__column">
+    <link name="left_front_shock_mount_column">
         <inertial>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
             <mass value="0.0001"/>
@@ -92,7 +92,7 @@
             <material name="shock_mount_column_color"/>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </visual>
-        <collision name="left_front_shock_mount__column_collision">
+        <collision name="left_front_shock_mount_column_collision">
             <geometry>
                 <cylinder radius="0.002" length="0.0483"/>
             </geometry>
@@ -105,7 +105,7 @@
             <mass value="0.0282"/>
             <inertia ixx="6.3044624999999994e-06" ixy="0.0" ixz="0.0" iyy="6.3044624999999994e-06" iyz="0.0" izz="9.901724999999999e-06"/>
         </inertial>
-        <visual name="&lt;urdfpy.urdf.Material object at 0x7f30d1add970&gt;">
+        <visual name="&lt;urdfpy.urdf.Material object at 0x7f70a6cb8be0&gt;">
             <geometry>
                 <cylinder radius="0.0265" length="0.024"/>
             </geometry>
@@ -124,7 +124,7 @@
             <mass value="0.0282"/>
             <inertia ixx="6.3044624999999994e-06" ixy="0.0" ixz="0.0" iyy="6.3044624999999994e-06" iyz="0.0" izz="9.901724999999999e-06"/>
         </inertial>
-        <visual name="&lt;urdfpy.urdf.Material object at 0x7f30d12c3c10&gt;">
+        <visual name="&lt;urdfpy.urdf.Material object at 0x7f70a765bc10&gt;">
             <geometry>
                 <cylinder radius="0.0265" length="0.024"/>
             </geometry>
@@ -157,7 +157,7 @@
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </collision>
     </link>
-    <link name="right_rear_shock_mount__column">
+    <link name="right_rear_shock_mount_column">
         <inertial>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
             <mass value="0.0001"/>
@@ -170,7 +170,7 @@
             <material name="shock_mount_column_color"/>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </visual>
-        <collision name="right_rear_shock_mount__column_collision">
+        <collision name="right_rear_shock_mount_column_collision">
             <geometry>
                 <cylinder radius="0.002" length="0.0483"/>
             </geometry>
@@ -183,7 +183,7 @@
             <mass value="0.0282"/>
             <inertia ixx="6.3044624999999994e-06" ixy="0.0" ixz="0.0" iyy="6.3044624999999994e-06" iyz="0.0" izz="9.901724999999999e-06"/>
         </inertial>
-        <visual name="&lt;urdfpy.urdf.Material object at 0x7f30d12c3970&gt;">
+        <visual name="&lt;urdfpy.urdf.Material object at 0x7f70a765b970&gt;">
             <geometry>
                 <cylinder radius="0.0265" length="0.024"/>
             </geometry>
@@ -216,7 +216,7 @@
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </collision>
     </link>
-    <link name="left_rear_shock_mount__column">
+    <link name="left_rear_shock_mount_column">
         <inertial>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
             <mass value="0.0001"/>
@@ -229,7 +229,7 @@
             <material name="shock_mount_column_color"/>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </visual>
-        <collision name="left_rear_shock_mount__column_collision">
+        <collision name="left_rear_shock_mount_column_collision">
             <geometry>
                 <cylinder radius="0.002" length="0.0483"/>
             </geometry>
@@ -256,8 +256,8 @@
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </collision>
     </link>
-    <joint name="right_front_axle_to_right_front_shock_mount__column_joint" type="fixed">
-        <parent link="right_front_shock_mount__column"/>
+    <joint name="right_front_axle_to_right_front_shock_mount_column_joint" type="fixed">
+        <parent link="right_front_shock_mount_column"/>
         <child link="right_front_axle"/>
         <axis xyz="0. 1. 0."/>
         <origin xyz="0.0175 0.0 0.0" rpy="0.0 1.5707963267948966 0.0"/>
@@ -268,15 +268,15 @@
         <axis xyz="0. 0. 1."/>
         <origin xyz="0.0 0.0 0.004500000000000001" rpy="0.0 0.0 0.0"/>
     </joint>
-    <joint name="chassis_to_right_front_shock_mount__column_joint" type="revolute">
+    <joint name="chassis_to_right_front_shock_mount_column_joint" type="revolute">
         <limit effort="0.1" velocity="0.1" lower="-0.5235987755982988" upper="0.5235987755982988"/>
         <parent link="chassis"/>
-        <child link="right_front_shock_mount__column"/>
+        <child link="right_front_shock_mount_column"/>
         <axis xyz="0. 0. 1."/>
         <origin xyz="0.125 -0.058 -0.018" rpy="0.0 0.0 -1.5707963267948968"/>
     </joint>
-    <joint name="left_front_axle_to_left_front_shock_mount__column_joint" type="fixed">
-        <parent link="left_front_shock_mount__column"/>
+    <joint name="left_front_axle_to_left_front_shock_mount_column_joint" type="fixed">
+        <parent link="left_front_shock_mount_column"/>
         <child link="left_front_axle"/>
         <axis xyz="0. 1. 0."/>
         <origin xyz="0.0175 0.0 0.0" rpy="0.0 1.5707963267948966 0.0"/>
@@ -287,16 +287,16 @@
         <axis xyz="0. 0. 1."/>
         <origin xyz="0.0 0.0 0.004500000000000001" rpy="0.0 0.0 0.0"/>
     </joint>
-    <joint name="chassis_to_left_front_shock_mount__column_joint" type="revolute">
+    <joint name="chassis_to_left_front_shock_mount_column_joint" type="revolute">
         <limit effort="0.1" velocity="0.1" lower="-0.5235987755982988" upper="0.5235987755982988"/>
         <parent link="chassis"/>
-        <child link="left_front_shock_mount__column"/>
+        <child link="left_front_shock_mount_column"/>
         <axis xyz="0. 0. 1."/>
         <origin xyz="0.125 0.058 -0.018" rpy="0.0 0.0 1.5707963267948966"/>
     </joint>
-    <joint name="chassis_to_right_rear_shock_mount__column_joint" type="fixed">
+    <joint name="chassis_to_right_rear_shock_mount_column_joint" type="fixed">
         <parent link="chassis"/>
-        <child link="right_rear_shock_mount__column"/>
+        <child link="right_rear_shock_mount_column"/>
         <axis xyz="1. 0. 0."/>
         <origin xyz="-0.125 -0.058 -0.018" rpy="0.0 0.0 -1.5707963267948968"/>
     </joint>
@@ -306,15 +306,15 @@
         <axis xyz="0. 0. 1."/>
         <origin xyz="0.0 0.0 0.004500000000000001" rpy="0.0 0.0 0.0"/>
     </joint>
-    <joint name="right_rear_axle_to_right_rear_shock_mount__column_joint" type="fixed">
-        <parent link="right_rear_shock_mount__column"/>
+    <joint name="right_rear_axle_to_right_rear_shock_mount_column_joint" type="fixed">
+        <parent link="right_rear_shock_mount_column"/>
         <child link="right_rear_axle"/>
         <axis xyz="0. 1. 0."/>
         <origin xyz="0.0175 0.0 0.0" rpy="0.0 1.5707963267948966 0.0"/>
     </joint>
-    <joint name="chassis_to_left_rear_shock_mount__column_joint" type="fixed">
+    <joint name="chassis_to_left_rear_shock_mount_column_joint" type="fixed">
         <parent link="chassis"/>
-        <child link="left_rear_shock_mount__column"/>
+        <child link="left_rear_shock_mount_column"/>
         <axis xyz="1. 0. 0."/>
         <origin xyz="-0.125 0.058 -0.018" rpy="0.0 0.0 1.5707963267948966"/>
     </joint>
@@ -324,8 +324,8 @@
         <axis xyz="0. 0. 1."/>
         <origin xyz="0.0 0.0 0.004500000000000001" rpy="0.0 0.0 0.0"/>
     </joint>
-    <joint name="left_rear_axle_to_left_rear_shock_mount__column_joint" type="fixed">
-        <parent link="left_rear_shock_mount__column"/>
+    <joint name="left_rear_axle_to_left_rear_shock_mount_column_joint" type="fixed">
+        <parent link="left_rear_shock_mount_column"/>
         <child link="left_rear_axle"/>
         <axis xyz="0. 1. 0."/>
         <origin xyz="0.0175 0.0 0.0" rpy="0.0 1.5707963267948966 0.0"/>
@@ -344,15 +344,15 @@
         </actuator>
         <type>transmission_interface/SimpleTransmission</type>
     </transmission>
-    <transmission name="chassis_to_left_front_shock_mount__column_joint_transmission">
-        <actuator name="chassis_to_left_front_shock_mount__column_joint_actuator">
+    <transmission name="chassis_to_left_front_shock_mount_column_joint_transmission">
+        <actuator name="chassis_to_left_front_shock_mount_column_joint_actuator">
             <mechanicalReduction>1</mechanicalReduction>
             <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </actuator>
         <type>transmission_interface/SimpleTransmission</type>
     </transmission>
-    <transmission name="chassis_to_right_front_shock_mount__column_joint_transmission">
-        <actuator name="chassis_to_right_front_shock_mount__column_joint_actuator">
+    <transmission name="chassis_to_right_front_shock_mount_column_joint_transmission">
+        <actuator name="chassis_to_right_front_shock_mount_column_joint_actuator">
             <mechanicalReduction>1</mechanicalReduction>
             <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
         </actuator>
