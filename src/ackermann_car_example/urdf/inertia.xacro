@@ -1,0 +1,34 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <!-- Null inertial element. This is needed to make the model work with
+       Gazebo. -->
+    <xacro:macro name="null_inertial">
+        <inertial>
+            <mass value="0.001"/>
+            <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+        </inertial>
+    </xacro:macro>
+
+    <!-- Inertia of a solid cuboid. Width is measured along the x axis, depth
+       along the y axis, and height along the z axis. -->
+    <xacro:macro name="solid_cuboid_inertial" params="width depth height mass *origin">
+        <inertial>
+            <xacro:insert_block name="origin"/>
+            <mass value="${mass}"/>
+            <inertia ixx="${mass * (depth * depth + height * height) / 12}" ixy="0" ixz="0" iyy="${mass * (width * width + height * height) / 12}" iyz="0" izz="${mass * (width * width + depth * depth) / 12}"/>
+        </inertial>
+    </xacro:macro>
+
+    <!-- Inertia of a thick-walled cylindrical tube with open ends. Height is
+    measured along the z axis, which is the tube's axis. inner_rad and
+    outer_rad are the tube's inner and outer radii, respectively. -->
+    <xacro:macro name="thick_walled_tube_inertial" params="inner_rad outer_rad height mass">
+        <inertial>
+            <mass value="${mass}"/>
+            <inertia ixx="${(1 / 12) * mass * (3 * (inner_rad * inner_rad +
+                outer_rad * outer_rad) + height * height)}" ixy="0" ixz="0" iyy="${(1 / 12) * mass * (3 * (inner_rad * inner_rad +
+                outer_rad * outer_rad) + height * height)}" iyz="0" izz="${mass * (inner_rad * inner_rad +
+                outer_rad * outer_rad) / 2}"/>
+        </inertial>
+    </xacro:macro>
+</robot>
