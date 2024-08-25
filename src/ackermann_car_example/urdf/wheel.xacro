@@ -2,6 +2,9 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <!-- Import the other macros -->
+    <xacro:include filename="inertia.xacro" />
+
     <xacro:macro name="wheel" params="id props">
         <xacro:property name="width" value="${props['width_m']}" />
         <xacro:property name="mass_kg" value="${props['mass_kg']}" />
@@ -18,13 +21,16 @@
                     <cylinder length="${width}" radius="${radius}" />
                 </geometry>
             </collision>
+            <!-- <xacro:solid_cylinder_inertial radius="${radius}" height="${width}" mass="{mass_kg}">
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </xacro:solid_cylinder_inertial> -->
             <inertial>
                 <mass value="${mass_kg}"/>
                 <inertia ixx="${(1/12) * mass_kg * (3*radius*radius + width*width)}" ixy="0" ixz="0" iyy="${(1/12) * mass_kg * (3*radius*radius + width*width)}" iyz="0" izz="${(1/2) * mass_kg * radius*radius}" />
             </inertial>
         </link>
         <gazebo reference="${id}">
-            <material>Gazebo/Black</material>
+            <material>Gazebo/Grey</material>
         </gazebo>
     </xacro:macro>
 

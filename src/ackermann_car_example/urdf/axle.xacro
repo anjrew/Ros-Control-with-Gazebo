@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:macro name="wheel" params="id props">
+
+        <xacro:property name="length" value="${props['length_m']}" />
+        <xacro:property name="mass" value="${props['mass_kg']}" />
+        <xacro:property name="radius" value="${props['diameter_m'] / 2}" />
+        <xacro:property name="inset" value="${props['wheel_inset_m']}" />
+
+
+        <link name="${id}">
+            <!-- <xacro:solid_cylinder_inertial radius="${radius}" height="${width}" mass="{mass_kg}">
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+            </xacro:solid_cylinder_inertial> -->
+            <inertial>
+                <mass value="${mass_kg}"/>
+                <inertia ixx="${(1/12) * mass_kg * (3*radius*radius + width*width)}" ixy="0" ixz="0" iyy="${(1/12) * mass_kg * (3*radius*radius + width*width)}" iyz="0" izz="${(1/2) * mass_kg * radius*radius}" />
+            </inertial>
+            <visual>
+                <geometry>
+                    <cylinder radius="${radius}" length="${length}"/>
+                </geometry>
+                <material name="axle_color"/>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+            </visual>
+            <collision name="right_front_axle_collision">
+                <geometry>
+                    <cylinder radius="${radius}" length="${length}"/>
+                </geometry>
+                <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+            </collision>
+        </link>
+
+    </xacro:macro>
+</robot>
