@@ -1,6 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<robot name="car">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="car">
+
+    <link name="chassis">
+        <inertial>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+            <mass value="1.7827"/>
+            <inertia ixx="0.0043741515666666664" ixy="0.0" ixz="0.0" iyy="0.022022881566666663" iyz="0.0" izz="0.025254916666666665"/>
+        </inertial>
+        <visual>
+            <geometry>
+                <box size="0.38  0.16  0.062"/>
+            </geometry>
+            <material name="chassis_color"/>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </visual>
+        <collision name="chassis_collision">
+            <geometry>
+                <box size="0.38  0.16  0.062"/>
+            </geometry>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
+        </collision>
+    </link>
+
 
     <link name="right_rear">
         <inertial>
@@ -62,28 +84,6 @@
         </collision>
     </link>
 
-    <link name="chassis">
-        <inertial>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-            <mass value="1.7827"/>
-            <inertia ixx="0.0043741515666666664" ixy="0.0" ixz="0.0" iyy="0.022022881566666663" iyz="0.0" izz="0.025254916666666665"/>
-        </inertial>
-        <visual>
-            <geometry>
-                <box size="0.38  0.16  0.062"/>
-            </geometry>
-            <material name="chassis_color"/>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-        </visual>
-        <collision name="chassis_collision">
-            <geometry>
-                <box size="0.38  0.16  0.062"/>
-            </geometry>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-        </collision>
-    </link>
-
-
     <joint name="chassis_to_right_rear_shock_mount_column_joint" type="fixed">
         <parent link="chassis"/>
         <child link="right_rear_shock_mount_column"/>
@@ -141,5 +141,4 @@
     <gazebo reference="chassis">
         <material>Gazebo/White</material>
     </gazebo>
-
 </robot>
