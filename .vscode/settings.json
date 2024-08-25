@@ -64,5 +64,9 @@
             ]
         }
     },
-    "terminal.integrated.defaultProfile.linux": "bash"
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "files.associations": {
+        "*.xacro": "xml"
+    },
+    "xml.format.maxLineWidth": 80,
 }
