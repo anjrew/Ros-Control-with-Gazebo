@@ -16,9 +16,9 @@ car:
     type: velocity_controllers/JointVelocityController
     joint: right_rear_to_right_rear_axle_joint
 
-  left_rear_wheel_controller:
-    type: velocity_controllers/JointVelocityController
-    joint: left_rear_to_left_rear_axle_joint
+  # left_rear_wheel_controller:
+  #   type: velocity_controllers/JointVelocityController
+  #   joint: left_rear_to_left_rear_axle_joint
 
   # right_front_shock_controller:
   #   type: position_controllers/JointPositionController
