@@ -182,22 +182,12 @@
 
     <transmission name="right_rear_to_right_rear_axle_joint_transmission">
         <type>transmission_interface/SimpleTransmission</type>
-        <joint name="right_rear_to_right_rear_axle_joint">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        </joint>
+        <!-- <joint name="right_rear_to_right_rear_axle_joint">
+        </joint> -->
         <actuator name="right_rear_to_right_rear_axle_joint_actuator">
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
-    </transmission>
-
-    <transmission name="left_rear_to_left_rear_axle_joint_transmission">
-        <type>transmission_interface/SimpleTransmission</type>
-        <joint name="left_rear_to_left_rear_axle_joint">
-            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
-        </joint>
-        <actuator name="left_rear_to_left_rear_axle_joint_actuator">
-            <mechanicalReduction>1</mechanicalReduction>
-        </actuator>
+        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </transmission>
 
 

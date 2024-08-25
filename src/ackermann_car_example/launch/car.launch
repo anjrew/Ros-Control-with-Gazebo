@@ -34,7 +34,7 @@
     right_front_shock_controller
     left_front_shock_controller" /> -->
 
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/car" args="joint_state_controller right_rear_wheel_controller left_rear_wheel_controller" />
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/car" args="joint_state_controller right_rear_wheel_controller" />
 
 
     <!-- Convert joint states to TF transforms for rviz, etc -->
