@@ -191,3 +191,4 @@ core
 /myenv
 /rosbags/*
 !/rosbags/.gitkeep
+src/ackermann_car_example/logs

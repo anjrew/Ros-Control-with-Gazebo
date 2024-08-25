@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <launch>
 
+    <env name="GAZEBO_MODEL_DATABASE_URI" value=""/>
+    <env name="GAZEBO_PLUGIN_PATH" value=""/>
+    <env name="GAZEBO_MODEL_PATH" value=""/>
+    <env name="GAZEBO_VERBOSE" value="1" />
+    <env name="GAZEBO_LOG_PATH" value="$(find ackermann_car_example)/logs" />
+
     <!-- Load the Gazebo world file -->
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="paused" value="true"/>
@@ -34,7 +40,7 @@
     right_front_shock_controller
     left_front_shock_controller" /> -->
 
-    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/car" args="joint_state_controller right_rear_wheel_controller" />
+    <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="/car" args="joint_state_controller right_rear_to_right_rear_axle_joint_controller" />
 
 
     <!-- Convert joint states to TF transforms for rviz, etc -->
