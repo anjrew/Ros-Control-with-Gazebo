@@ -1,4 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
+
 <robot name="car">
 
     <link name="right_rear">
@@ -60,65 +61,7 @@
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
         </collision>
     </link>
-    <link name="left_rear">
-        <inertial>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-            <mass value="0.0282"/>
-            <inertia ixx="6.3044624999999994e-06" ixy="0.0" ixz="0.0" iyy="6.3044624999999994e-06" iyz="0.0" izz="9.901724999999999e-06"/>
-        </inertial>
-        <visual name="&lt;urdfpy.urdf.Material object at 0x7f70a765b970&gt;">
-            <geometry>
-                <cylinder radius="0.0265" length="0.024"/>
-            </geometry>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-        </visual>
-        <collision name="wheel_collision">
-            <geometry>
-                <cylinder radius="0.0265" length="0.024"/>
-            </geometry>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-        </collision>
-    </link>
-    <link name="left_rear_axle">
-        <inertial>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-            <mass value="0.0001"/>
-            <inertia ixx="1.0277223333333336e-08" ixy="0.0" ixz="0.0" iyy="1.0277223333333336e-08" iyz="0.0" izz="1.3778000000000001e-10"/>
-        </inertial>
-        <visual>
-            <geometry>
-                <cylinder radius="0.00166" length="0.035"/>
-            </geometry>
-            <material name="axle_color"/>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-        </visual>
-        <collision name="left_rear_axle_collision">
-            <geometry>
-                <cylinder radius="0.00166" length="0.035"/>
-            </geometry>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-        </collision>
-    </link>
-    <link name="left_rear_shock_mount_column">
-        <inertial>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-            <mass value="0.0001"/>
-            <inertia ixx="1.9540750000000002e-08" ixy="0.0" ixz="0.0" iyy="1.9540750000000002e-08" iyz="0.0" izz="2e-10"/>
-        </inertial>
-        <visual>
-            <geometry>
-                <cylinder radius="0.002" length="0.0483"/>
-            </geometry>
-            <material name="shock_mount_column_color"/>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-        </visual>
-        <collision name="left_rear_shock_mount_column_collision">
-            <geometry>
-                <cylinder radius="0.002" length="0.0483"/>
-            </geometry>
-            <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
-        </collision>
-    </link>
+
     <link name="chassis">
         <inertial>
             <origin xyz="0.0 0.0 0.0" rpy="0.0 -0.0 0.0"/>
@@ -159,35 +102,18 @@
         <axis xyz="0. 1. 0."/>
         <origin xyz="0.0175 0.0 0.0" rpy="0.0 1.5707963267948966 0.0"/>
     </joint>
-    <joint name="chassis_to_left_rear_shock_mount_column_joint" type="fixed">
-        <parent link="chassis"/>
-        <child link="left_rear_shock_mount_column"/>
-        <axis xyz="1. 0. 0."/>
-        <origin xyz="-0.125 0.058 -0.018" rpy="0.0 0.0 1.5707963267948966"/>
-    </joint>
-    <joint name="left_rear_to_left_rear_axle_joint" type="continuous">
-        <parent link="left_rear_axle"/>
-        <child link="left_rear"/>
-        <axis xyz="0. 0. 1."/>
-        <origin xyz="0.0 0.0 0.004500000000000001" rpy="0.0 0.0 0.0"/>
-    </joint>
-    <joint name="left_rear_axle_to_left_rear_shock_mount_column_joint" type="fixed">
-        <parent link="left_rear_shock_mount_column"/>
-        <child link="left_rear_axle"/>
-        <axis xyz="0. 1. 0."/>
-        <origin xyz="0.0175 0.0 0.0" rpy="0.0 1.5707963267948966 0.0"/>
-    </joint>
+
 
 
 
     <transmission name="right_rear_to_right_rear_axle_joint_transmission">
         <type>transmission_interface/SimpleTransmission</type>
-        <!-- <joint name="right_rear_to_right_rear_axle_joint">
-        </joint> -->
+        <joint name="right_rear_to_right_rear_axle_joint">
+            <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+        </joint>
         <actuator name="right_rear_to_right_rear_axle_joint_actuator">
             <mechanicalReduction>1</mechanicalReduction>
         </actuator>
-        <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
     </transmission>
 
 
@@ -209,4 +135,11 @@
             <legacyModeNS>true</legacyModeNS>
         </plugin>
     </gazebo>
+    <gazebo reference="right_rear">
+        <material>Gazebo/Black</material>
+    </gazebo>
+    <gazebo reference="chassis">
+        <material>Gazebo/White</material>
+    </gazebo>
+
 </robot>
