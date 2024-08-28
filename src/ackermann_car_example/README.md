@@ -2,6 +2,14 @@
 
 This example demonstrates the use of using ROS control with an Ackermann car configuration
 
+## Running the example
+
+To run the example, you can use the following command:
+
+```bash
+roslaunch ackermann_car_example car.launch
+```
+
 ## Getting a list of the controllers
 
 To get a list of the controllers, you can use the following command:
