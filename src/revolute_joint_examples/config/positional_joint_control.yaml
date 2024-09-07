@@ -5,7 +5,7 @@ positional_jointed_robot:
     publish_rate: 50
 
   # Position Controllers
-  base_to_arm_position_controller:
+  base_to_arm_positional_controller:
     type: position_controllers/JointPositionController
     joint: base_to_arm
     pid: { p: 1.0, i: 0.0, d: 0.0 }
