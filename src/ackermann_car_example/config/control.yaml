@@ -7,8 +7,9 @@ car:
   right_rear_wheel_controller:
     type: velocity_controllers/JointVelocityController
     joint: right_rear_to_right_rear_axle_joint
+    pid: { p: 1.0, i: 0.0, d: 0.0 }
 
   # PID gains (if needed)
   gazebo_ros_control:
     pid_gains:
-      right_rear_to_right_rear_axle_joint: { p: -.0, i: 0.00, d: 0.0 }
+      right_rear_to_right_rear_axle_joint: { p: 1.0, i: 0.00, d: 0.0 }
